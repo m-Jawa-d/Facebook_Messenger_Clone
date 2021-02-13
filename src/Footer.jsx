@@ -24,7 +24,7 @@ function Footer(prop) {
             <div className="Footer">
                 <input value={val} onChange={thisVal} className="messege_input" type="text" placeholder="Enter your message..." />
                 <span className="emoji">🙂</span>
-                <Button onClick={send} className="B"> <SendIcon className="icon" /> </Button>
+                <Button disabled={!val} onClick={send} className="B"> <SendIcon className="icon" /> </Button>
             </div>
 
             <div className='cent'>
