@@ -4,9 +4,11 @@ import Button from '@material-ui/core/Button';
 import Header from "./Header";
 import { NavLink } from "react-router-dom";
 import { Hidden } from '@material-ui/core';
+import { useStateValue } from './StateProvider';
 function StartPage() {
+    const [ { userName },dispatch]= useStateValue();
+
     const [name, upName] = useState('');
-    const [aname, upAName] = useState('ali');
 
     const nameput = (obj) => {
         upName(obj.target.value);
@@ -16,9 +18,12 @@ function StartPage() {
         obj.preventDefault();
     }
     const submit_Name = () => {
-        upAName(name);
+        dispatch({
+            type:'userName',
+            name : name,
+    })
     }
-    console.log(aname)
+    console.log(name)
     return (
         <>
                 <form onSubmit={defl}>
